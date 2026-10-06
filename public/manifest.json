@@ -1,0 +1,11 @@
+{
+  "id": "goals",
+  "name": "Goals",
+  "version": "0.1.0",
+  "minAppVersion": "0.4.0",
+  "description": "Long-, mid- and short-term goals and a TODO list, with documents linked to each.",
+  "permissions": ["rooms.read"],
+  "slots": {
+    "tab": { "title": "Goals", "icon": "target", "sidebar": true }
+  }
+}
