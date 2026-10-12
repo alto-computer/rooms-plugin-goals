@@ -2,7 +2,7 @@
 
 Long-, mid- and short-term goals and a TODO list, in a tab of [Alto Rooms](https://github.com/alto-computer/alto-rooms). Link documents to a goal and open them from it.
 
-Goals ships with Alto Rooms 0.4.0 and later. It is on by default; right-click it in the sidebar to turn it off.
+Goals ships with Alto Rooms 0.4.0 and later. It is on by default; right-click it in the sidebar to turn it off. From 0.2.0 the board follows the app's appearance, light or dark, which needs Alto Rooms 0.7.1 or later.
 
 ## Use
 
