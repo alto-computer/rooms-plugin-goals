@@ -6,5 +6,6 @@ export default defineConfig({
   base: "./",
   plugins: [react()],
   build: { outDir: "dist", emptyOutDir: true, target: "es2022", modulePreload: false },
-  test: { environment: "jsdom" },
+  // Vitest blanks every .css import, even `?raw`, unless it is listed here; theme.test.ts reads the stylesheet's text.
+  test: { environment: "jsdom", css: { include: [/\?raw$/] } },
 });

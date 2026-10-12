@@ -1,13 +1,20 @@
+/* Every colour is an app theme token (SDK 0.7, `--rooms-*`). The fallbacks are the app's light theme, for a page opened outside Rooms. */
 :root {
-  --ink: #1a1a1a;
-  --ink-2: #555;
-  --ink-3: #8a8a8a;
-  --line: #e6e6e6;
-  --panel: #f7f7f7;
-  --hover: #efefef;
-  --accent: #2f6fde;
-  --danger: #c4392b;
-  color-scheme: light;
+  --page: var(--rooms-bg, #f8f4ee);
+  --card: var(--rooms-card, #fffdf9);
+  --panel: var(--rooms-surface, #efe8df);
+  --hover: var(--rooms-surface-strong, #e5ddd2);
+  --line: var(--rooms-border, rgb(70 48 30 / 0.11));
+  --line-strong: var(--rooms-border-strong, rgb(70 48 30 / 0.18));
+  --ink: var(--rooms-text, #27211e);
+  --ink-2: var(--rooms-text-muted, #6b625b);
+  --ink-3: var(--rooms-text-faint, #958b83);
+  --accent: var(--rooms-accent, #e31c5f);
+  --danger: var(--rooms-error, #c13515);
+  /* The app's ink for a filled control is dark in dark mode, where white on its error red fails AA. */
+  --on-danger: var(--rooms-on-accent, #fff);
+  --shadow: var(--rooms-shadow, 0 8px 24px rgb(0 0 0 / 0.12));
+  --font: var(--rooms-font-sans, system-ui, -apple-system, BlinkMacSystemFont, sans-serif);
 }
 * {
   box-sizing: border-box;
@@ -19,13 +26,9 @@ body,
   margin: 0;
 }
 body {
-  font:
-    14px/1.45 system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font: 14px/1.45 var(--font);
   color: var(--ink);
-  background: #fff;
+  background: var(--page);
 }
 button {
   font: inherit;
@@ -69,7 +72,7 @@ input:focus-visible {
   border-radius: 6px;
 }
 .warn:hover {
-  background: #fbeceb;
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
 }
 
 .icon {
@@ -100,7 +103,7 @@ input:focus-visible {
   border-radius: 6px;
 }
 .danger {
-  color: #fff;
+  color: var(--on-danger);
   background: var(--danger);
 }
 
@@ -164,13 +167,13 @@ input:focus-visible {
   min-height: 8px;
 }
 .item {
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 9px;
   padding: 8px 8px 8px 10px;
 }
 .item:hover {
-  border-color: #d6d6d6;
+  border-color: var(--line-strong);
 }
 .item.drop-before {
   box-shadow: 0 -2px 0 var(--accent);
@@ -262,7 +265,7 @@ input:focus-visible {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 6px 8px;
-  background: #fff;
+  background: var(--card);
 }
 .column > .line {
   margin-top: 6px;
@@ -281,10 +284,10 @@ input:focus-visible {
   left: 0;
   right: 0;
   top: calc(100% + 4px);
-  background: #fff;
-  border: 1px solid #ddd;
+  background: var(--card);
+  border: 1px solid var(--line-strong);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow);
   padding: 6px;
   display: flex;
   flex-direction: column;
